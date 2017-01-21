@@ -5,7 +5,7 @@ extends Node
 # var b = "textvar"
 
 func _ready():
-	pass
+	set_process(true)
 
 func start_game():
 	get_tree().change_scene( "res://Scenes/Juego.tscn" )

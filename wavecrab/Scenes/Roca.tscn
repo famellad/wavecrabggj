@@ -13,7 +13,7 @@ vertices = Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411, 
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
 outlines = [ Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411, -42.8695, -39.913 ) ]
 
-[node name="Rock" type="Area2D"]
+[node name="Roca" type="Area2D"]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
