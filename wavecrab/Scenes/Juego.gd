@@ -1,13 +1,10 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 const VEL_MAX = 10.0
 var velocidad = 0
 var aceleracion = 16
 var max_contador = -1
+var estado = "valle" # Estados son valle y combate
 
 var destino = Vector2(0,0)
 onready var cangrejo = get_node("Cangrejo")
