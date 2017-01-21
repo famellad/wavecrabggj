@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Roca.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sfx/rola.wav" type="Sample" id=7]
+[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -35,7 +35,7 @@ points = Vector2Array( 0, -576, 0, -576, 1920, -576 )
 
 [sub_resource type="SampleLibrary" id=6]
 
-samples/rola = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
 [node name="Juego" type="Node2D"]
 
