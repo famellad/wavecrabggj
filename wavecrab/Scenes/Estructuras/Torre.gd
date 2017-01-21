@@ -33,12 +33,12 @@ func fuego(dir):
 	cn.dir = dir
 	add_child(cn)
 	
-#func _input(event):
-#	if (event.type == InputEvent.MOUSE_BUTTON 
-#		and event.pressed 
-#		and event.button_index == 1):
-#			fuego( (get_local_mouse_pos() - get_pos()).normalized() )
+func _input(event):
+	if (event.type == InputEvent.MOUSE_BUTTON 
+		and event.pressed 
+		and event.button_index == 1):
+			fuego( (get_local_mouse_pos() - get_pos()).normalized() )
 	
 func _ready():
 	set_fixed_process(true)
-#	set_process_input(true)
+	set_process_input(true)
