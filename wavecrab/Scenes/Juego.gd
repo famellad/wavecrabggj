@@ -62,6 +62,7 @@ func iniciar_contador():
 	randomize()
 	max_contador = floor(rand_range(5, 30))
 	contador_node = contador.instance()
+	#Corregir posición!
 	contador_node.set_pos(Vector2(958.046204, 130.461441))
 	add_child(contador_node)
 	contador_ref = weakref(contador_node)
