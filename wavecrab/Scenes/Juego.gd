@@ -1,54 +1,41 @@
-extends Node
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
-const VEL = 200.0
+const VEL_MAX = 10.0
+var velocidad = 0
+var aceleracion = 16
 
-var inicio = Vector2()
-var final = Vector2()
-var path = []
-
-func _process(delta):
-	if (path.size() > 1):
-		var to_walk = delta*VEL
-		while(to_walk > 0 and path.size() >= 2):
-			var pfrom = path[path.size() - 1]
-			var pto = path[path.size() - 2]
-			var d = pfrom.distance_to(pto)
-			if (d <= to_walk):
-				path.remove(path.size() - 1)
-				to_walk -= d
-			else:
-				path[path.size() - 1] = pfrom.linear_interpolate(pto, to_walk/d)
-				to_walk = 0
-		
-		var atpos = path[path.size() - 1]
-		get_node("Cangrejo").set_pos(atpos)
-		
-		if (path.size() < 2):
-			path = []
-			set_process(false)
-	else:
-		set_process(false)
-
-func _update_path():
-	var p = get_simple_path(inicio, final, true)
-	path = Array(p) # Vector2array too complex to use, convert to regular array
-	path.invert()
+var destino = Vector2(0,0)
+onready var cangrejo = get_node("Cangrejo")
 	
-	set_process(true)
+func _fixed_process(delta):
+	var dir = (destino - cangrejo.get_pos())
+	var dist = dir.length()
+	dir = dir.normalized()
+	
+	if velocidad < VEL_MAX:
+		var tmp_accel = aceleracion
+		var dv = tmp_accel * delta
+		if velocidad + dv > VEL_MAX:
+			velocidad = VEL_MAX
+		else: 
+			velocidad += dv
+			
+	if dist > 30:
+		var mot = cangrejo.move(dir * velocidad)
+		if mot.length() > 0:
+			destino = cangrejo.get_pos()
+	else:
+		velocidad = 0
+		set_fixed_process(false)
 	
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
-		inicio = get_node("Cangrejo").get_pos()
-		# Mouse to local navigation coordinates
-		final = event.pos - get_pos()
-		_update_path()
-
+		destino = get_global_mouse_pos()
+		set_fixed_process(true)
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	set_process_input(true)
