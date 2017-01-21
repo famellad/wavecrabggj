@@ -34,7 +34,7 @@ tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 4 ] }
 
-[node name="Tortugon" type="KinematicBody2D"]
+[node name="Tortugon" type="KinematicBody2D" groups=[ "enemigos" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -49,6 +49,7 @@ collision/margin = 0.08
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 4
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
