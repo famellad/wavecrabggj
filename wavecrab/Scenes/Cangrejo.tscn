@@ -98,7 +98,6 @@ drag_margin/bottom = 0.12
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 2
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 
