@@ -44,10 +44,10 @@ script/script = ExtResource( 1 )
 
 [node name="warn" type="Sprite" parent="."]
 
-transform/rot = 14.8947
-transform/scale = Vector2( 1.0014, 1.0014 )
+transform/rot = -13.0814
+transform/scale = Vector2( 1.37442, 1.37442 )
 texture = ExtResource( 2 )
-modulate = Color( 0.517476, 0.499698, 0.499698, 1 )
+modulate = Color( 0.853996, 0.848617, 0.848617, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="warn"]
 
@@ -65,7 +65,7 @@ autoplay = "BounceWarning"
 
 transform/pos = Vector2( 216.508, -1.98023e-06 )
 transform/rot = -90.0
-transform/scale = Vector2( 0.515489, 0.515489 )
+transform/scale = Vector2( 0.623277, 0.623277 )
 texture = ExtResource( 3 )
 modulate = Color( 1, 0.046875, 0.046875, 1 )
 
