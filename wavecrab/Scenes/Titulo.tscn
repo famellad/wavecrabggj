@@ -1,5 +1,28 @@
-[gd_scene format=1]
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Gfx/Titulos/titulo.png" type="Texture" id=1]
 
 [node name="Titulo" type="Node"]
+
+[node name="Fondo" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 774.0
+margin/top = 674.0
+margin/right = 1178.0
+margin/bottom = 836.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "JUGAR"
+flat = false
 
 
