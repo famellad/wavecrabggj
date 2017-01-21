@@ -8,7 +8,7 @@ func _fixed_process(delta):
 	var rem = move(delta * dir * velocidad)
 	if is_colliding():
 		var col = get_collider()
-		if col.hit:
+		if col.has_method("hit"):
 			col.hit(self)
 		else:
 			print("Objeto con mascara de enemigo no tiene evento al ser dannado")
