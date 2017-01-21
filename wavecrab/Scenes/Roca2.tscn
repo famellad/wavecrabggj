@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Gfx/Fondo/Piedra2.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -77.5404, -12.26, -66.7368, -29.4874, -42.2097, -43.5029, -6.87907, -50.5106, 27.5756, -47.8827, 45.0404, -37.2379, 63.0904, -23.7004, 63.4902, -5.5443, 32.4054, 15.107, -15.4271, 20.522, -69.3647, 11.975 )
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -77.5404, -12.26, -66.7368, -29.4874, -42.2097, -43.5029, -6.87907, -50.5106, 27.5756, -47.8827, 45.0404, -37.2379, 63.0904, -23.7004, 63.4902, -5.5443, 32.4054, 15.107, -15.4271, 20.522, -69.3647, 11.975 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="Piedra2" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+
+
