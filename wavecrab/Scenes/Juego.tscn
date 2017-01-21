@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Roca.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=7]
+[ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -35,11 +38,15 @@ points = Vector2Array( 0, -576, 0, -576, 1920, -576 )
 
 [sub_resource type="SampleLibrary" id=6]
 
-samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
 
 [node name="Juego" type="Node2D"]
 
 script/script = ExtResource( 1 )
+
+[node name="Navegador" type="Navigation2D" parent="."]
+
+transform/pos = Vector2( 973.635, 542.122 )
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -91,25 +98,53 @@ polygon = Vector2Array( 0, -576, -288, -864, 2208, -864, 2208, 1344, -288, 1344,
 shape_range = Vector2( 0, 4 )
 trigger = false
 
-[node name="Navegador" type="Navigation2D" parent="."]
+[node name="Tesoro" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 973.635, 542.122 )
+transform/pos = Vector2( 992, -352 )
 
-[node name="Mar" parent="." instance=ExtResource( 3 )]
+[node name="Mar" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 960, 600 )
 
-[node name="Mar1" parent="." instance=ExtResource( 3 )]
+[node name="Mar1" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -960, 600 )
 
-[node name="Cangrejo" parent="." instance=ExtResource( 4 )]
+[node name="Rocas" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1952, 608 )
+
+[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 196.406, 838.083 )
+
+[node name="Rock" parent="Rocas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1390.55, 266.239 )
+
+[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 494.942, -82.7533 )
+
+[node name="Rock 2" parent="Rocas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( -85.3114, 468.067 )
+
+[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -93.7208, -524.25 )
+
+[node name="Rock 3" parent="Rocas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1886.71, -654.597 )
+
+[node name="Cangrejo" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 960.803, 544.123 )
-
-[node name="Roca" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 1437.94, 395.276 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -122,7 +157,7 @@ scale = Vector2( 1, 1 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 6 )
+stream/stream = ExtResource( 9 )
 stream/play = true
 stream/loop = true
 stream/volume_db = 0.0
