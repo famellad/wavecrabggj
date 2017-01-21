@@ -20,4 +20,11 @@ transform/pos = Vector2( 960.803, 544.123 )
 
 transform/pos = Vector2( 1437.94, 395.276 )
 
+[node name="GUI" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
 
