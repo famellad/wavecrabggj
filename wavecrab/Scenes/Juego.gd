@@ -42,10 +42,14 @@ func _update_path():
 	
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
-		inicio = get_node("Cangrejo").get_pos()
+		#inicio = get_node("Cangrejo").get_pos()
 		# Mouse to local navigation coordinates
-		final = event.pos - get_pos()
-		_update_path()
+		#final = event.pos - get_pos()
+		var mousepoint = get_global_mouse_pos()
+		var crab = get_node("Cangrejo")
+		var vector = (mousepoint - crab.get_pos()).normalized()
+		crab.move(vector * VEL * delta)
+		#_update_path()
 
 
 func _ready():
