@@ -4,7 +4,7 @@
 [ext_resource path="res://Gfx/UI/pentagono.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Action Comics.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 font/size = 68
 font/use_mipmaps = false
@@ -30,7 +30,7 @@ margin/left = -106.0
 margin/top = -15.0
 margin/right = 92.0
 margin/bottom = 51.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "00"
 align = 1
 percent_visible = 1.0
