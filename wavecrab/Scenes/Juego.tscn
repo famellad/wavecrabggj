@@ -2,4 +2,6 @@
 
 [node name="Juego" type="Node"]
 
+[node name="Navegador" type="Navigation2D" parent="."]
+
 
