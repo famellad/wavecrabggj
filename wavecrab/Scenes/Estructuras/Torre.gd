@@ -40,5 +40,9 @@ func fuego(dir):
 ##			fuego( (get_local_mouse_pos() - get_pos()).normalized() )
 	
 func _ready():
+	var textura = floor(randf() * 2.999)
+	Texture = "res://Gfx/Estructuras/Castillo" + str(textura) + ".png"
+	_update()
+	
 	set_fixed_process(true)
 	# set_process_input(true)
