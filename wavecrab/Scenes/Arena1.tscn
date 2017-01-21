@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Gfx/Estructuras/CerroArena.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 133.368, 9.99437, 167.824, 19.284, 140.037, 37.0186, 112.251, 37.0186 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -128.939, 44.6192, -151.168, 37.8631, -53.3587, -39.8316, -70.0518, 45.1425 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 61.1228, 46.3082, -7.78837, 50.5308, -70.0518, 45.1425, -53.3587, -39.8316, -6.6769, -58.4108, 40.7899, -61.7519, 76.7899, -50.7519, 92.244, -27.164, 112.251, 37.0186 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 112.251, 37.0186, 92.244, -27.164, 133.368, 9.99437 )
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411, -42.8695, -39.913 )
+polygons = [ IntArray( 0, 1, 2, 3 ) ]
+outlines = [ Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411, -42.8695, -39.913 ) ]
+
+[node name="Roca" type="StaticBody2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 0.899709, 0, 0, 1.18412, 0, 57.9998 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 4 )
+shapes/1/transform = Matrix32( 0.899709, 0, 0, 1.18412, 0, 57.9998 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 5 )
+shapes/2/transform = Matrix32( 0.899709, 0, 0, 1.18412, 0, 57.9998 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 6 )
+shapes/3/transform = Matrix32( 0.899709, 0, 0, 1.18412, 0, 57.9998 )
+shapes/3/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+transform/pos = Vector2( 0, 57.9998 )
+transform/scale = Vector2( 0.899709, 1.18412 )
+build_mode = 0
+polygon = Vector2Array( 40.7899, -61.7519, 76.7899, -50.7519, 92.244, -27.164, 133.368, 9.99437, 167.824, 19.284, 140.037, 37.0186, 112.251, 37.0186, 61.1228, 46.3082, -7.78837, 50.5308, -70.0518, 45.1425, -128.939, 44.6192, -151.168, 37.8631, -53.3587, -39.8316, -6.6769, -58.4108 )
+shape_range = Vector2( 0, 3 )
+trigger = false
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+
+transform/pos = Vector2( -49.2512, 94.0918 )
+navpoly = SubResource( 2 )
+enabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+
+
