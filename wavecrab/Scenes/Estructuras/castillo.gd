@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite
 
 var dir = Vector2()
 var concha = preload("res://Scenes/Estructuras/Conchita.tscn")

@@ -31,6 +31,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 0.437665, 1.60456 )
 texture = ExtResource( 2 )
+modulate = Color( 0.956863, 0.352941, 0.133333, 1 )
 
 [node name="Anim" type="AnimationPlayer" parent="pentagono"]
 

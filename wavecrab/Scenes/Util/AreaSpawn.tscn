@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scenes/Util/AreaSpawn.gd" type="Script" id=1]
+[ext_resource path="res://Gfx/checkers.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+dir = null
+cadencia = 0
+grupos = 5
+enemigos_por_grupo = 4
+habilitado = false
+enemigo = "res://Scenes/Enemigos/tortuga.tscn"
+
+[node name="checkers" type="Sprite" parent="."]
+
+visibility/opacity = 0.3
+visibility/self_opacity = 0.3
+transform/scale = Vector2( 0.0596391, 0.0578318 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 1024, 1024 )
+
+
