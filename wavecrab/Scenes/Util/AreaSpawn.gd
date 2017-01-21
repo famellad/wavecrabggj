@@ -10,23 +10,27 @@ export(String, FILE, "*.tscn") var enemigo = "res://Scenes/Enemigos/tortuga.tscn
 
 var enemigo_tpl = load(enemigo)
 var _tiempo_ultimo_spawn = cadencia
-var _grupos_spawneados = grupos
+var _grupos_spawneados = 0
 
 const DIR_TOP = 0
 const DIR_LEFT = 0
 const DIR_RIGHT = 0
 
+onready var parent = get_parent()
+
 func spawnear_oponentes():
 	for i in range(0, enemigos_por_grupo):
-		var en = enemigo_tpl.instantiate()
+		var en = enemigo_tpl.instance()
 		
+		var hs = get_scale().x
+		var vs = get_scale().y
 		var lu = get_pos() - get_scale()
 		var rd = get_pos() + get_scale()
-		var rx = lu.x + (rd.x - lu.x) * randf()
-		var ry = lu.y + (rd.y - lu.y) * randf()
+		var rx = lu.x + (rd.x - lu.x) * randf() * hs
+		var ry = lu.y + (rd.y - lu.y) * randf() * vs
 		
 		en.set_pos(Vector2(rx, ry))
-		add_child(en)
+		parent.add_child(en)
 		
 	_grupos_spawneados += 1
 
@@ -39,4 +43,4 @@ func _fixed_process(dt):
 			_tiempo_ultimo_spawn -= cadencia
 
 func _ready():
-	pass
+	set_fixed_process(true)

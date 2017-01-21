@@ -15,6 +15,8 @@ enemigo = "res://Scenes/Enemigos/tortuga.tscn"
 
 [node name="checkers" type="Sprite" parent="."]
 
+visibility/opacity = 0.3
+visibility/self_opacity = 0.3
 transform/scale = Vector2( 0.0596391, 0.0578318 )
 texture = ExtResource( 2 )
 region = true
