@@ -4,10 +4,13 @@ var target
 var _t_restante_ataque = 0
 var huyendo = false
 
+var unboost = 0
+
 export var danno = 2
 export var _health = 7
 export var cadencia = 0.8
 export var velocidad = 1
+export var boost = 300
 
 func hit(part):
 	_health -= part.danno
@@ -15,7 +18,7 @@ func hit(part):
 		huir()
 		
 func crab_hit():
-	_health -= 1
+	_health -= 2
 	if _health <= 0:
 		huir()
 
@@ -43,7 +46,10 @@ func encontrar_target():
 	# Fin target
 	
 func _fixed_process(delta):
-	if get_pos().y >= 3000:
+	unboost += delta * 10
+	unboost = min(unboost, boost)
+	
+	if get_pos().y >= 1500 and huyendo:
 		self.queue_free()
 	
 	_t_restante_ataque -= delta
@@ -59,7 +65,7 @@ func _fixed_process(delta):
 				
 	if target.get_ref():
 		var movdir = (target.get_ref().get_global_pos() - get_global_pos()).normalized()
-		var resto = move(movdir * velocidad * delta)
+		var resto = move(movdir * (velocidad + boost - unboost) * delta)
 		if resto.length_squared() > 0:
 			if is_colliding():
 				en_colision(get_collider())

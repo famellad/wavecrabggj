@@ -7,6 +7,7 @@ var max_contador = -1
 var estado = "valle" # Estados son valle y combate
 
 var sticks = 0
+var contador_next_game = 4
 
 var destino = Vector2(0,0)
 onready var cangrejo = get_node("Cangrejo")
@@ -22,6 +23,14 @@ onready var spawners = get_tree().get_nodes_in_group("spawner")
 onready var spawn_strategy = get_node("SpawnStrategy")
 
 func _fixed_process(delta):
+	if get_node("Tesoro").huyendo:
+		contador_next_game -= delta
+		get_node("GUI/contador_recursos").hide()
+		get_node("GUI/Contador").hide()
+	
+	if contador_next_game <= 0:
+		get_tree().change_scene("res://Scenes/Titulo.tscn")
+	
 	if Input.is_action_pressed("mouse_down"):
 		destino = get_global_mouse_pos()
 		var dir = (destino - cangrejo.get_pos())
