@@ -11,6 +11,8 @@ const LARGO_TORRE = 230
 const LARGO_CASTILLO = 500
 const RADIO_CANGREJO = 76.5
 
+var wait = 0
+
 func _ready():
 	get_node("Camera2D").make_current()
 	set_process(true)
@@ -24,8 +26,13 @@ func _ready():
 func _process( delta ):
 	if prev_pos == get_pos():
 		moving = false
-		if anim.get_current_animation() != "idle":
+		
+		if anim.get_current_animation() != "idle" and wait >= 1/15:
 			anim.play("idle")
+			wait = 0
+			return
+		
+		wait += delta
 	else:
 		moving = true
 		if anim.get_current_animation() != "walk":

@@ -7,40 +7,36 @@
 [ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=12]
+[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=13]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 0, -576, -288, -864, 2208, -864, 1920, -576 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -288, 1344, -288, -864, 0, -576, 0, 1056 )
+points = Vector2Array( -576, -1056, -1248, -1536, 3168, -1536, 2592, -1056 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 2208, 1344, -288, 1344, 0, 1056, 1920, 1056 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 2208, -864, 2208, 1344, 1920, 1056, 1920, -576 )
+points = Vector2Array( 2592, -1056, 3168, -1536, 3168, 1344, 2592, 1056 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, -576, 0, -576, 1920, -576 )
+points = Vector2Array( 2592, 1056, 3168, 1344, -1248, 1344, -576, 1056 )
 
-[sub_resource type="SampleLibrary" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 
-samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+custom_solver_bias = 0.0
+points = Vector2Array( -1248, 1344, -1248, -1536, -576, -1056, -576, 1056 )
+
+[sub_resource type="SampleLibrary" id=5]
+
+samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
 
 [node name="Juego" type="Node2D"]
 
@@ -50,7 +46,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 973.635, 542.122 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Harina" type="TileMap" parent="."]
 
 mode = 0
 tile_set = ExtResource( 2 )
@@ -68,24 +64,69 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -65538, 0, -65537, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -2, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, 65534, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 131070, 0, 131071, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
 
+[node name="Tesoro" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 992, -544 )
+
+[node name="Mar" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 960, 600 )
+
+[node name="Mar1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -960, 600 )
+
+[node name="BordesPiedras" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 500, 500 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -196610, 2, -262139, 1, -131074, 2, -196603, 1, -65538, 2, -131067, 1, -2, 2, -65531, 1, 65534, 2, 5, 1, 131070, 2, 65541, 1, 196606, 2, 131077, 1, 262142, 2, 196613, 1 )
+
+[node name="BordesRejas" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 500, 500 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3 )
+
 [node name="Bordes" type="StaticBody2D" parent="."]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
+shapes/1/shape = SubResource( 7 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 3 )
+shapes/2/shape = SubResource( 8 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 4 )
+shapes/3/shape = SubResource( 9 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 5 )
-shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/4/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -96,21 +137,9 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bordes"]
 
 build_mode = 0
-polygon = Vector2Array( 0, -576, -288, -864, 2208, -864, 2208, 1344, -288, 1344, -288, -864, 0, -576, 0, 1056, 1920, 1056, 1920, -576, 0, -576 )
-shape_range = Vector2( 0, 4 )
+polygon = Vector2Array( -1248, -1536, 3168, -1536, 3168, 1344, -1248, 1344, -1248, -1536, -576, -1056, -576, 1056, 2592, 1056, 2592, -1056, -576, -1056 )
+shape_range = Vector2( 0, 3 )
 trigger = false
-
-[node name="Tesoro" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 992, -352 )
-
-[node name="Mar" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 960, 600 )
-
-[node name="Mar1" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( -960, 600 )
 
 [node name="Rocas" type="Node2D" parent="."]
 
@@ -144,7 +173,11 @@ transform/pos = Vector2( -93.7208, -524.25 )
 
 transform/pos = Vector2( 1886.71, -654.597 )
 
-[node name="Cangrejo" parent="." instance=ExtResource( 8 )]
+[node name="ResSpawn" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -300, 512 )
+
+[node name="Cangrejo" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 960.803, 544.123 )
 
@@ -168,7 +201,7 @@ margin/bottom = 1054.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 9 )
+textures/normal = ExtResource( 10 )
 
 [node name="construir_castillo" type="TextureButton" parent="GUI"]
 
@@ -183,9 +216,9 @@ margin/bottom = 1054.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 9 )
+textures/normal = ExtResource( 10 )
 
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 10 )]
+[node name="contador_recursos" parent="GUI" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 1772.17, 865.211 )
 
@@ -193,7 +226,7 @@ transform/pos = Vector2( 1772.17, 865.211 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 11 )
+stream/stream = ExtResource( 12 )
 stream/play = true
 stream/loop = true
 stream/volume_db = 0.0
@@ -210,7 +243,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 6 )
+config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
 [connection signal="released" from="GUI/construir_torre" to="Cangrejo" method="_on_construir_torre_released"]

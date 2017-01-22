@@ -13,10 +13,10 @@ func _ready():
 
 func _process(delta):
 	pass
-	#countdown -= delta
-	#if countdown < 0:
-		#countdown = 0.5
-		#spawn_palito()
+	countdown -= delta
+	if countdown < 0:
+		countdown = 0.5
+		spawn_palito()
 
 func random_point():
 	var x = randf() * 1024 * sa.get_scale().x + sa.get_global_pos().x

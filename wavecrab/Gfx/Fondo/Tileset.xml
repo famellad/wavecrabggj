@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="2" version="2.1" version_name="Godot Engine v2.1.stable.official">
+<resource_file type="TileSet" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.official">
 	<ext_resource path="res://Gfx/Fondo/Arena.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Gfx/Fondo/Rejasuperiortile.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://Gfx/Fondo/Piedrasderecha.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://Gfx/Fondo/Piedrasizquierda.png" type="Texture" index="2"></ext_resource>
 	<main_resource>
 		<string name="0/name"> "Arena" </string>
 		<resource name="0/texture" external="0">  </resource>
@@ -10,6 +13,33 @@
 		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> -0, -0 </vector2>
 		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 0, 0 </vector2>
 		<array name="0/shapes" len="0" shared="false">
+		</array>
+		<string name="1/name"> "Piedras_Derecha" </string>
+		<resource name="1/texture" external="1">  </resource>
+		<vector2 name="1/tex_offset"> 0, 0 </vector2>
+		<resource name="1/material"></resource>		<rect2 name="1/region"> 0, 0, 500, 500 </rect2>
+		<vector2 name="1/occluder_offset"> 250, 250 </vector2>
+		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 250, 250 </vector2>
+		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 0, 0 </vector2>
+		<array name="1/shapes" len="0" shared="false">
+		</array>
+		<string name="2/name"> "Piedras_Izquierda" </string>
+		<resource name="2/texture" external="2">  </resource>
+		<vector2 name="2/tex_offset"> 0, 0 </vector2>
+		<resource name="2/material"></resource>		<rect2 name="2/region"> 0, 0, 500, 500 </rect2>
+		<vector2 name="2/occluder_offset"> 250, 250 </vector2>
+		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 250, 250 </vector2>
+		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 0, 0 </vector2>
+		<array name="2/shapes" len="0" shared="false">
+		</array>
+		<string name="3/name"> "Rejja" </string>
+		<resource name="3/texture" external="3">  </resource>
+		<vector2 name="3/tex_offset"> 0, 0 </vector2>
+		<resource name="3/material"></resource>		<rect2 name="3/region"> 0, 0, 500, 500 </rect2>
+		<vector2 name="3/occluder_offset"> 250, 250 </vector2>
+		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 250, 250 </vector2>
+		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 0, 0 </vector2>
+		<array name="3/shapes" len="0" shared="false">
 		</array>
 
 	</main_resource>
