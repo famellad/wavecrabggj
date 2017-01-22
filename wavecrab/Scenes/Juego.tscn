@@ -4,16 +4,16 @@
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=10]
-[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=11]
+[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=14]
 [ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -113,6 +113,15 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3 )
 
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1099.98, 1895.43 )
+transform/scale = Vector2( 58.3743, 11.2321 )
+cadencia = 1.0
+enemigos_por_grupo = 1
+habilitado = true
+enemigo = "res://Tortugon.tscn"
+
 [node name="Bordes" type="StaticBody2D" parent="."]
 
 input/pickable = false
@@ -146,39 +155,39 @@ trigger = false
 
 editor/display_folded = true
 
-[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 5 )]
+[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1952, 608 )
 
-[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 6 )]
+[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 196.406, 838.083 )
 
-[node name="Rock" parent="Rocas" instance=ExtResource( 7 )]
+[node name="Rock" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1390.55, 266.239 )
 
-[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 5 )]
+[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 494.942, -82.7533 )
 
-[node name="Rock 2" parent="Rocas" instance=ExtResource( 7 )]
+[node name="Rock 2" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -85.3114, 468.067 )
 
-[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 6 )]
+[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -93.7208, -524.25 )
 
-[node name="Rock 3" parent="Rocas" instance=ExtResource( 7 )]
+[node name="Rock 3" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1886.71, -654.597 )
 
-[node name="ResSpawn" parent="." instance=ExtResource( 8 )]
+[node name="ResSpawn" parent="." instance=ExtResource( 9 )]
 
-transform/pos = Vector2( -300, 512 )
+transform/pos = Vector2( -300, 420 )
 
-[node name="Cangrejo" parent="." instance=ExtResource( 9 )]
+[node name="Cangrejo" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 960.803, 160.85 )
 
@@ -203,7 +212,7 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
+textures/normal = ExtResource( 11 )
 
 [node name="construir_castillo" type="TextureButton" parent="GUI"]
 
@@ -219,9 +228,9 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
+textures/normal = ExtResource( 12 )
 
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 12 )]
+[node name="contador_recursos" parent="GUI" instance=ExtResource( 13 )]
 
 transform/pos = Vector2( 1787.75, 863.05 )
 
@@ -229,7 +238,7 @@ transform/pos = Vector2( 1787.75, 863.05 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 13 )
+stream/stream = ExtResource( 14 )
 stream/play = true
 stream/loop = true
 stream/volume_db = 0.0
@@ -248,15 +257,6 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 5 )
 config/pitch_random = 0.0
-
-[node name="Node2D" parent="." instance=ExtResource( 14 )]
-
-transform/pos = Vector2( 1037.26, 1892.27 )
-transform/scale = Vector2( 58.3743, 11.2321 )
-cadencia = 1.0
-enemigos_por_grupo = 1
-habilitado = true
-enemigo = "res://Tortugon.tscn"
 
 [node name="SpawnStrategy" parent="." instance=ExtResource( 15 )]
 

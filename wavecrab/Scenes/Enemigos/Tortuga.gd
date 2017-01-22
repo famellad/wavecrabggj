@@ -12,6 +12,11 @@ func hit(part):
 	_health -= part.danno
 	if _health <= 0:
 		self.queue_free()
+		
+func crab_hit():
+	_health -= 1
+	if _health <= 0:
+		self.queue_free()
 
 func encontrar_target():
 	var pot_targets = get_tree().get_nodes_in_group("fuente")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scenes/Cangrejo.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/crabyattack.png" type="Texture" id=2]
@@ -118,11 +118,6 @@ tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 4 ] }
 
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 90, 30 )
-
 [node name="Cangrejo" type="KinematicBody2D"]
 
 input/pickable = false
@@ -179,24 +174,6 @@ autoplay = "quiet"
 
 shape = SubResource( 1 )
 trigger = false
-_update_shape_index = 0
-
-[node name="Hitbox" type="Area2D" parent="."]
-
-input/pickable = true
-shapes/0/shape = SubResource( 6 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 96.47 )
-shapes/0/trigger = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
-
-transform/pos = Vector2( 0, 96.47 )
-shape = SubResource( 6 )
-trigger = true
 _update_shape_index = 0
 
 

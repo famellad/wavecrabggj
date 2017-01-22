@@ -7,7 +7,7 @@ onready var anim = get_node("Sprite/AnimationPlayer")
 onready var recursos = load("res://Scenes/UI/ContadorRecursos.tscn")
 onready var hitbox = get_node("Hitbox")
 var recursos_node
-var cooldown
+var cooldown = CADENCIA
 
 const CADENCIA = 0.5
 const COSTO_TORRE = 10
@@ -24,7 +24,7 @@ func _ready():
 	recursos_node = get_parent().get_node("GUI/contador_recursos")
 	
 func _process( delta ):
-	checar_enemigos()
+	checar_enemigos(delta)
 	
 	if attack:
 		if anim.get_current_animation() != "attack":
@@ -52,14 +52,22 @@ func _process( delta ):
 		
 	prev_pos = get_pos()
 
-func checar_enemigos():
-	var in_hitbox = hitbox.get_overlapping_bodies()
+func checar_enemigos(delta):
+	var enemigos = get_tree().get_nodes_in_group("enemigos")
+	cooldown -= delta
 	
-	for b in in_hitbox:
-		if b.is_in_group("enemigos"):
-			attack = true
-		else:
-			attack = false
+	attack = false
+	
+	for e in enemigos:
+		var pos = e.get_pos()
+		if abs(get_pos().x - pos.x) < 75:
+			if abs(get_pos().y - pos.y) < 90:
+				attack = true
+				if cooldown <= 0:
+					e.crab_hit()
+	
+	if cooldown <= 0:
+		cooldown = CADENCIA
 
 func construir_torre():
 	var valor_actual = int(recursos_node.get_label())
