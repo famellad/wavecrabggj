@@ -28,6 +28,8 @@ func add_tartaruga( tartaruga ):
 	tartaruga.queue_free()
 
 func _on_Goal_body_enter( body ):
-	print("herrr")
+	if huyendo:
+		return
+	
 	if body.is_in_group("enemigos"):
 		add_tartaruga(body)

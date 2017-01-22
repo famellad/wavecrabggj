@@ -205,9 +205,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 34.0
-margin/top = 990.0
-margin/right = 98.0
-margin/bottom = 1054.0
+margin/top = 921.0
+margin/right = 234.0
+margin/bottom = 1016.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
@@ -221,9 +221,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 174.0
-margin/top = 990.0
-margin/right = 238.0
-margin/bottom = 1054.0
+margin/top = 921.0
+margin/right = 374.0
+margin/bottom = 1016.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
@@ -232,7 +232,7 @@ textures/normal = ExtResource( 12 )
 
 [node name="contador_recursos" parent="GUI" instance=ExtResource( 13 )]
 
-transform/pos = Vector2( 1787.75, 863.05 )
+transform/pos = Vector2( 1787.75, 817.05 )
 
 [node name="Sonido" type="Node" parent="."]
 
