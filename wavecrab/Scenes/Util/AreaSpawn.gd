@@ -38,7 +38,7 @@ func spawn():
 	var ry = lu.y + (rd.y - lu.y) * rrand() * vs
 	
 	en.set_global_pos(Vector2(rx, ry))
-	parent.add_child(en)
+	get_tree().get_root().add_child(en)
 
 func _fixed_process(dt):
 	if habilitado:
