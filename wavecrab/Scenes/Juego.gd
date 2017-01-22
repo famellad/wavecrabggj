@@ -15,7 +15,7 @@ var contador_node
 var contador_ref
 onready var _ola_lbl = get_node("GUI/ola")
 
-var ola = 0
+var ola = 10
 onready var spawners = get_tree().get_nodes_in_group("spawner")
 onready var spawn_strategy = get_node("SpawnStrategy")
 
@@ -68,7 +68,6 @@ func _process(delta):
 			if tiempo_restante <= 0:
 				#Animación final?
 				#Instanciar la ola
-				iniciar_ola()
 				
 				contador_node.free()
 		
