@@ -5,6 +5,7 @@ var moving = false
 var attack = false
 onready var anim = get_node("Sprite/AnimationPlayer")
 onready var recursos = load("res://Scenes/UI/ContadorRecursos.tscn")
+onready var hitbox = get_node("Hitbox")
 var recursos_node
 var cooldown
 
@@ -25,7 +26,10 @@ func _ready():
 func _process( delta ):
 	checar_enemigos()
 	
-	
+	if attack:
+		if anim.get_current_animation() != "attack":
+			anim.play("attack")
+		return
 	
 	var rf = randf()
 	if rf < 0.001 and not moving:
@@ -49,7 +53,13 @@ func _process( delta ):
 	prev_pos = get_pos()
 
 func checar_enemigos():
-	pass
+	var in_hitbox = hitbox.get_overlapping_bodies()
+	
+	for b in in_hitbox:
+		if b.is_in_group("enemigos"):
+			attack = true
+		else:
+			attack = false
 
 func construir_torre():
 	var valor_actual = int(recursos_node.get_label())
