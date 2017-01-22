@@ -49,7 +49,7 @@ func _fixed_process(delta):
 	unboost += delta * 10
 	unboost = min(unboost, boost)
 	
-	if get_pos().y >= 3000:
+	if get_pos().y >= 1500 and huyendo:
 		self.queue_free()
 	
 	_t_restante_ataque -= delta
