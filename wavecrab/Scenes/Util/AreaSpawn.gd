@@ -18,18 +18,21 @@ const DIR_RIGHT = 0
 
 onready var parent = get_parent()
 
+func rrand():
+	return (randf() - .5) * 2.0
+
 func spawnear_oponentes():
 	for i in range(0, enemigos_por_grupo):
 		var en = enemigo_tpl.instance()
 		
 		var hs = get_scale().x
 		var vs = get_scale().y
-		var lu = get_pos() - get_scale()
-		var rd = get_pos() + get_scale()
-		var rx = lu.x + (rd.x - lu.x) * randf() * hs
-		var ry = lu.y + (rd.y - lu.y) * randf() * vs
+		var lu = get_global_pos() - get_scale()
+		var rd = get_global_pos() + get_scale()
+		var rx = lu.x + (rd.x - lu.x) * rrand() * hs
+		var ry = lu.y + (rd.y - lu.y) * rrand() * vs
 		
-		en.set_pos(Vector2(rx, ry))
+		en.set_global_pos(Vector2(rx, ry))
 		parent.add_child(en)
 		
 	_grupos_spawneados += 1
@@ -43,4 +46,5 @@ func _fixed_process(dt):
 			_tiempo_ultimo_spawn -= cadencia
 
 func _ready():
+	randomize()
 	set_fixed_process(true)
