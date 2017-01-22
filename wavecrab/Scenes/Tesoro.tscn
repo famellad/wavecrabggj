@@ -233,6 +233,25 @@ offset = Vector2( -1, 0 )
 vframes = 2
 hframes = 2
 
+[node name="Camera2D" type="Camera2D" parent="Cofre"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 1380
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
 [node name="AnimCofre" type="AnimationPlayer" parent="Cofre"]
 
 playback/process_mode = 1
@@ -286,6 +305,8 @@ _update_shape_index = 0
 transform/pos = Vector2( 181.718, -94.1829 )
 transform/rot = 3.31766
 transform/scale = Vector2( 0.861764, 0.861764 )
+z/z = 30
+z/relative = false
 texture = ExtResource( 5 )
 vframes = 2
 hframes = 3
@@ -320,25 +341,6 @@ collision/layers = 1039
 shape = SubResource( 9 )
 trigger = true
 _update_shape_index = 0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-anchor_mode = 1
-rotating = false
-current = false
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
 
 [connection signal="body_enter" from="Goal" to="." method="_on_Goal_body_enter"]
 
