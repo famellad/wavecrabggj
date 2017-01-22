@@ -87,3 +87,7 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_fixed_process(true)
+
+
+func _on_again_released():
+	get_tree().reload_current_scene()

@@ -23,6 +23,14 @@ func _fixed_process(delta):
 		if animc.get_current_animation() != "huyen2":
 			animc.play("huyen2")
 			get_node("Tartarugas").set_opacity( 0 )
+			huyendo = true
+			var old_cam = get_parent().get_node("Cangrejo/Camera2D")
+			var new_cam = get_node("Camera2D")
+			new_cam.make_current()
+			#Problema! Como sólo se mueve la animación, la cámara no sigue al objeto... Cómo se puede arreglar?
+			get_node("game_over").show()
+			get_node("again").show()
+			
 			
 func add_tartaruga( tartaruga ):
 	n_tortugas += 1
