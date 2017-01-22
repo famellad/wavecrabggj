@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Util/AreaSpawn.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/checkers.png" type="Texture" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=[ "spawner" ]]
 
 script/script = ExtResource( 1 )
 dir = null
