@@ -16,7 +16,17 @@ func _fixed_process(delta):
 			col.hit(self)
 		else:
 			print("Objeto con mascara de enemigo no tiene evento al ser dannado")
-
+		explode()
+		
+func mprint():
+	queue_free()
+	
+func explode():
+	dir = Vector2()
+	_anim.play("kapow")
+		
 func _ready():
 	set_fixed_process(true)
-	_anim.connect("finished", self, "play_spin")
+	_anim.animation_set_next("Spawn", "Spinspin")
+	_anim.play("Spawn")
+	_anim.connect("finished", self, "mprint")

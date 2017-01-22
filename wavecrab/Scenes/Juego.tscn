@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sfx/alertas.wav" type="Sample" id=10]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -144,7 +145,7 @@ transform/pos = Vector2( 1886.71, -654.597 )
 
 [node name="Cangrejo" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 960.803, 544.123 )
+transform/pos = Vector2( 960.803, 160.85 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -176,5 +177,14 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 6 )
 config/pitch_random = 0.0
+
+[node name="Node2D" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1533.61, -200.497 )
+transform/scale = Vector2( 10.4613, 11.2321 )
+cadencia = 1.0
+enemigos_por_grupo = 1
+habilitado = true
+enemigo = "res://Tortugon.tscn"
 
 
