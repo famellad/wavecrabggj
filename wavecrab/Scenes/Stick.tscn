@@ -1,16 +1,29 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Gfx/Ramita.png" type="Texture" id=1]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 35.9029, -49.2782, 87.5965, -41.4754, 87.5965, -34.1603, -66.5089, 33.6266, -65.0459, 21.9224 )
+radius = 56.0
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "DesdeMar"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -1024 ) ] }
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
+transform/pos = Vector2( 0, -1024 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -20,16 +33,26 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Colision" type="CollisionShape2D" parent="."]
 
-build_mode = 0
-polygon = Vector2Array( -65.0459, 21.9224, -66.5089, 33.6266, 87.5965, -34.1603, 87.5965, -41.4754, 35.9029, -49.2782 )
-shape_range = Vector2( 0, 0 )
+shape = SubResource( 3 )
 trigger = false
+_update_shape_index = 0
 
-[node name="Ramita" type="Sprite" parent="."]
+[node name="Ramita" type="Sprite" parent="Colision"]
 
-transform/pos = Vector2( 10.8721, 2.17988 )
+transform/pos = Vector2( 10.8721, 2.17987 )
 texture = ExtResource( 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="Colision"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/DesdeMar = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 
