@@ -56,4 +56,4 @@ func _input(event):
 	
 func _ready():
 	set_fixed_process(true)
-	set_process_input(true)
+	#set_process_input(true)
