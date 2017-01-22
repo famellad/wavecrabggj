@@ -5,7 +5,8 @@ var palito = null
 onready var palitos = get_node("Palitos")
 onready var sa = get_node("SpawnArea")
 
-var countdown = 1
+const countdown_t = 1.5
+var countdown = countdown_t
 
 func _ready():
 	palito = load("res://Scenes/Stick.tscn")
@@ -15,7 +16,7 @@ func _process(delta):
 	pass
 	countdown -= delta
 	if countdown < 0:
-		countdown = 1
+		countdown = countdown_t
 		spawn_palito()
 
 func random_point():

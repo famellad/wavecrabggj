@@ -6,8 +6,8 @@
 
 script/script = ExtResource( 1 )
 cadencia_sub_ola = 1
-enemigos_ola_base = 20
-enemigos_ola_crecimiento = 3.5
+enemigos_ola_base = 25
+enemigos_ola_crecimiento = 5.0
 sub_olas = 5
 
 

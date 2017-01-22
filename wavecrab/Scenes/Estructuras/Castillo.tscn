@@ -1,17 +1,12 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Scenes/Estructuras/castillo.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Estructuras/Torre.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Estructuras/Torrecastillo.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 97.1783, -39.4373, 160.178, -37.4373, 262.178, 203.563, -241.822, 216.563, -165.822, -21.4373, -90.8216, -29.4373 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 97.1783, -39.4373, -90.8216, -29.4373, -58.8372, -159.4, 74.592, -164.435, 77.1096, -156.883 )
+points = Vector2Array( -167.46, -28.3311, 160.178, -37.4373, 210.001, 192.133, -205.874, 193.803 )
 
 [node name="Castillo" type="StaticBody2D"]
 
@@ -19,9 +14,6 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/1/trigger = false
 collision/layers = 4
 collision/mask = 5
 constant_linear_velocity = Vector2( 0, 0 )
@@ -29,19 +21,20 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
-cadencia = 0
-cono = 6.28319
-radio = 100
+cadencia = 0.35
+cono = 6.283
+radio = 450.0
 unico_objetivo = false
+health = 25
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -165.822, -21.4373, -90.8216, -29.4373, -58.8372, -159.4, 74.592, -164.435, 77.1096, -156.883, 97.1783, -39.4373, 160.178, -37.4373, 262.178, 203.563, -241.822, 216.563 )
-shape_range = Vector2( 0, 1 )
+polygon = Vector2Array( -167.46, -28.3311, 160.178, -37.4373, 210.001, 192.133, -205.874, 193.803 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
-[node name="Torrecastillo" type="Sprite" parent="."]
+[node name="torre" type="Sprite" parent="."]
 
 transform/pos = Vector2( 0, 2.51755 )
 texture = ExtResource( 2 )

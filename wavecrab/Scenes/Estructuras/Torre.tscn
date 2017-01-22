@@ -3,10 +3,10 @@
 [ext_resource path="res://Scenes/Estructuras/Torre.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Estructuras/Castillo.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -113.52, 101.941, -85.4211, -86.6446, 78.3078, -90.4271, 103.164, 102.481 )
+points = Vector2Array( -113.52, 101.941, -66.6533, -44.0236, 58.501, -45.384, 103.164, 102.481 )
 
 [sub_resource type="Animation" id=2]
 
@@ -33,8 +33,9 @@ tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 0
 
 [node name="Torre" type="StaticBody2D" groups=[ "estructuras" ]]
 
+transform/pos = Vector2( -522.384, -157.803 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 4
@@ -44,11 +45,11 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
-cadencia = 2.5
+cadencia = 1.0
 cono = 6.28319
-radio = 1200
-unico_objetivo = false
-health = 20
+radio = 700.0
+unico_objetivo = true
+health = 7
 
 [node name="torre" type="Sprite" parent="."]
 
@@ -69,7 +70,7 @@ autoplay = ""
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -113.52, 101.941, -85.4211, -86.6446, 78.3078, -90.4271, 103.164, 102.481 )
+polygon = Vector2Array( -113.52, 101.941, -66.6533, -44.0236, 58.501, -45.384, 103.164, 102.481 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
