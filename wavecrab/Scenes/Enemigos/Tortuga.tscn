@@ -76,6 +76,7 @@ danno = 2
 _health = 4
 cadencia = 0.8
 velocidad = 65
+boost = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
