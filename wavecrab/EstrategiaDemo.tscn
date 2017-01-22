@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node\n\nvar spawns = []\n\nexport var cadencia_sub_ola = 1\nexport var enemigos_ola_base = 8\nexport var enemigos_ola_crecimiento = 2.3\nexport var sub_olas = 5\n\nvar subola_actual = 1\nvar restantes = 0\nvar _t_restante_subola = 0\nvar pend = 0\n\nfunc _ready():\n\tset_process(true)\n\nfunc iniciar_ola(ola, duracion):\n\tspawns = []\n\t\n\tcadencia_sub_ola = duracion / sub_olas\n\trestantes = enemigos_ola_base + ola * enemigos_ola_crecimiento\n\tpend = -2 * (restantes + sub_olas * enemigos_ola_base) / (sub_olas * (sub_olas + 1))\n\tsubola_actual = 1\n\t\nfunc aplicar_spawn(spawn):\n\tspawns.append(spawn)\n\tspawn.habilitado = false\n\t\n\t\nfunc _process(delta):\n\tt_restante_subola -= delta\n\tif _t_restante_subola < 0:\n\t\t_t_restante_subola += cadencia_sub_ola\n\t\t\n\t\tvar total_subola = -pend * subola_actual + enemigos_ola_base\n\t\tfor i in range(0, total_subola):\n\t\t\tspawns[0].spawn()\n\t\n\t\tsubola_actual += 1"
+
+[node name="EstrategiaDemo" type="Node"]
+
+script/script = SubResource( 1 )
+cadencia_sub_ola = 1
+enemigos_ola_base = 20
+enemigos_ola_crecimiento = 3.5
+sub_olas = 5
+
+
