@@ -15,6 +15,8 @@ var contador_node
 var contador_ref
 onready var _ola_lbl = get_node("GUI/ola")
 
+const t_ola = 45
+
 var ola = 0
 onready var spawners = get_tree().get_nodes_in_group("spawner")
 onready var spawn_strategy = get_node("SpawnStrategy")
@@ -52,7 +54,7 @@ func iniciar_ola():
 	if ola == 1:
 		return
 	
-	spawn_strategy.iniciar_ola(ola, 30)
+	spawn_strategy.iniciar_ola(ola, t_ola)
 	for spawn in spawners:
 		spawn_strategy.aplicar_spawn(spawn)
 
@@ -76,7 +78,7 @@ func _process(delta):
 		
 func iniciar_contador():
 	randomize()
-	max_contador = 30
+	max_contador = t_ola
 	contador_node = contador.instance()
 	#Corregir posición!
 	contador_node.set_pos(Vector2(958.046204, 130.461441))
