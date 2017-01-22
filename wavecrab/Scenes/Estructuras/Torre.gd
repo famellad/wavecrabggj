@@ -48,7 +48,7 @@ func fuego(dir):
 	
 	if _anim != null:
 		_anim.play("shoot")
-	get_parent().add_child(cn)
+	get_tree().get_root().add_child(cn)
 	
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON 
