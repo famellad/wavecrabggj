@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Roca.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Roca.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=12]
 [ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=13]
@@ -38,14 +38,14 @@ points = Vector2Array( 2784, 1056, 3072, 1344, -1152, 1344, -864, 1056 )
 custom_solver_bias = 0.0
 points = Vector2Array( -864, 1056, -1152, 1344, -1152, -1440, -864, -1152 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 
 font/size = 180
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 14 )
 
-[sub_resource type="SampleLibrary" id=5]
+[sub_resource type="SampleLibrary" id=6]
 
 
 [node name="Juego" type="Node2D"]
@@ -74,15 +74,11 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -196610, 0, -196609, 0, -262144, 0, -262143, 0, -262142, 0, -262141, 0, -262140, 0, -262139, 0, -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -65538, 0, -65537, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -2, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, 65534, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 131070, 0, 131071, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
 
-[node name="Tesoro" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 992, -544 )
-
-[node name="Mar" parent="." instance=ExtResource( 4 )]
+[node name="Mar" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 960, 600 )
 
-[node name="Mar1" parent="." instance=ExtResource( 4 )]
+[node name="Mar1" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -960, 600 )
 
@@ -122,15 +118,15 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3 )
 
-[node name="StaticBody2D" parent="BordesRejas" instance=ExtResource( 5 )]
+[node name="StaticBody2D" parent="BordesRejas" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 730.579, 594.24 )
 
-[node name="Roca" parent="BordesRejas" instance=ExtResource( 6 )]
+[node name="Roca" parent="BordesRejas" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1852.65, -231.438 )
 
-[node name="Node2D" parent="." instance=ExtResource( 7 )]
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1061.27, 1895.43 )
 transform/scale = Vector2( 50.864, 11.2321 )
@@ -172,37 +168,41 @@ trigger = false
 
 editor/display_folded = true
 
-[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 5 )]
+[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1952, 608 )
 
-[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 8 )]
+[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 196.406, 838.083 )
 
-[node name="Rock" parent="Rocas" instance=ExtResource( 9 )]
+[node name="Rock" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1390.55, 266.239 )
 
-[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 5 )]
+[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 494.942, -82.7533 )
 
-[node name="Rock 2" parent="Rocas" instance=ExtResource( 9 )]
+[node name="Rock 2" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -85.3114, 468.067 )
 
-[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 8 )]
+[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -93.7208, -524.25 )
 
-[node name="Rock 3" parent="Rocas" instance=ExtResource( 9 )]
+[node name="Rock 3" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 1886.71, -654.597 )
 
-[node name="ResSpawn" parent="." instance=ExtResource( 10 )]
+[node name="ResSpawn" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( -300, 420 )
+
+[node name="Tesoro" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 992, -544 )
 
 [node name="Cangrejo" parent="." instance=ExtResource( 11 )]
 
@@ -257,7 +257,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 14.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -289,7 +289,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 5 )
+config/samples = SubResource( 6 )
 config/pitch_random = 0.0
 
 [node name="SpawnStrategy" parent="." instance=ExtResource( 17 )]
