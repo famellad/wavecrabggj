@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
@@ -8,39 +8,38 @@
 [ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=12]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sfx/alertas.wav" type="Sample" id=10]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, -576, -288, -864, 2208, -864, 1920, -576 )
+points = Vector2Array( -864, -1152, -1152, -1440, 960, -1440, 2784, -1152 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -288, 1344, -288, -864, 0, -576, 0, 1056 )
+points = Vector2Array( 2784, -1152, 960, -1440, 3072, -1440 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 2208, 1344, -288, 1344, 0, 1056, 1920, 1056 )
+points = Vector2Array( 2784, -1152, 3072, -1440, 3072, 1344, 2784, 1056 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 2208, -864, 2208, 1344, 1920, 1056, 1920, -576 )
+points = Vector2Array( 2784, 1056, 3072, 1344, -1152, 1344, -864, 1056 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 0, -576, 0, -576, 1920, -576 )
+points = Vector2Array( -864, 1056, -1152, 1344, -1152, -1440, -864, -1152 )
 
 [sub_resource type="SampleLibrary" id=6]
 
-samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+samples/alertas = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
 
 [node name="Juego" type="Node2D"]
 
@@ -66,7 +65,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -65538, 0, -65537, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -2, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, 65534, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 131070, 0, 131071, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
+tile_data = IntArray( -196610, 0, -196609, 0, -262144, 0, -262143, 0, -262142, 0, -262141, 0, -262140, 0, -262139, 0, -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -65538, 0, -65537, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -2, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, 65534, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 131070, 0, 131071, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
 
 [node name="Bordes" type="StaticBody2D" parent="."]
 
@@ -96,7 +95,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bordes"]
 
 build_mode = 0
-polygon = Vector2Array( 0, -576, -288, -864, 2208, -864, 2208, 1344, -288, 1344, -288, -864, 0, -576, 0, 1056, 1920, 1056, 1920, -576, 0, -576 )
+polygon = Vector2Array( -1152, -1440, 960, -1440, 3072, -1440, 3072, 1344, -1152, 1344, -1152, -1440, -864, -1152, -864, 1056, 2784, 1056, 2784, -1152, -864, -1152 )
 shape_range = Vector2( 0, 4 )
 trigger = false
 
@@ -146,7 +145,7 @@ transform/pos = Vector2( 1886.71, -654.597 )
 
 [node name="Cangrejo" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 960.803, 544.123 )
+transform/pos = Vector2( 960.803, 160.85 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -155,45 +154,11 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="construir_torre" type="TextureButton" parent="GUI"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 34.0
-margin/top = 990.0
-margin/right = 98.0
-margin/bottom = 1054.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 9 )
-
-[node name="construir_castillo" type="TextureButton" parent="GUI"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 174.0
-margin/top = 990.0
-margin/right = 238.0
-margin/bottom = 1054.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 9 )
-
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 10 )]
-
-transform/pos = Vector2( 1772.17, 865.211 )
-
 [node name="Sonido" type="Node" parent="."]
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 11 )
+stream/stream = ExtResource( 9 )
 stream/play = true
 stream/loop = true
 stream/volume_db = 0.0
@@ -213,8 +178,13 @@ config/polyphony = 1
 config/samples = SubResource( 6 )
 config/pitch_random = 0.0
 
-[connection signal="released" from="GUI/construir_torre" to="Cangrejo" method="_on_construir_torre_released"]
+[node name="Node2D" parent="." instance=ExtResource( 11 )]
 
-[connection signal="released" from="GUI/construir_castillo" to="Cangrejo" method="_on_construir_castillo_released"]
+transform/pos = Vector2( 1037.26, 1892.27 )
+transform/scale = Vector2( 58.3743, 11.2321 )
+cadencia = 1.0
+enemigos_por_grupo = 1
+habilitado = true
+enemigo = "res://Tortugon.tscn"
 
 
