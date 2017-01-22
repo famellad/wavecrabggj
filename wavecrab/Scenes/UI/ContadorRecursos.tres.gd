@@ -15,4 +15,4 @@ func set_label(s):
 	_label.set_text(s)
 	
 func get_label():
-	return _label.get_tex()
+	return _label.get_text()
