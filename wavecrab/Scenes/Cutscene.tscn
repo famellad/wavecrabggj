@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://Gfx/Titulos/Panel1.png" type="Texture" id=1]
-[ext_resource path="res://Gfx/Titulos/GGJ00_GameCredits_SplashScreen.jpg" type="Texture" id=2]
-[ext_resource path="res://Gfx/Titulos/Panel2.png" type="Texture" id=3]
-[ext_resource path="res://Gfx/Titulos/Panel3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Cutscene.gd" type="Script" id=1]
+[ext_resource path="res://Gfx/Titulos/Panel1.png" type="Texture" id=2]
+[ext_resource path="res://Gfx/Titulos/GGJ00_GameCredits_SplashScreen.jpg" type="Texture" id=3]
+[ext_resource path="res://Gfx/Titulos/Panel2.png" type="Texture" id=4]
+[ext_resource path="res://Gfx/Titulos/Panel3.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -51,9 +52,11 @@ tracks/0/keys = { "times":FloatArray( 11, 12 ), "transitions":FloatArray( 1, 1 )
 
 [node name="Cutscene" type="Node2D"]
 
+script/script = ExtResource( 1 )
+
 [node name="Coso1" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Coso1"]
@@ -70,7 +73,7 @@ autoplay = "Enter"
 [node name="GGJ" type="Sprite" parent="."]
 
 visibility/opacity = 0.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GGJ"]
@@ -86,7 +89,7 @@ autoplay = "Fadeinfadeout"
 
 [node name="Coso2" type="Sprite" parent="."]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Coso2"]
@@ -103,7 +106,7 @@ autoplay = "Bahar1"
 [node name="Coso3" type="Sprite" parent="."]
 
 transform/pos = Vector2( 0, -1080 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Coso3"]

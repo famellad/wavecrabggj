@@ -105,7 +105,7 @@ script/script = ExtResource( 1 )
 
 [node name="Cofre" type="Sprite" parent="."]
 
-transform/rot = -0.2
+transform/rot = 0.6
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 offset = Vector2( 1, 0 )
@@ -158,8 +158,8 @@ _update_shape_index = 0
 [node name="Tartarugas" type="Sprite" parent="."]
 
 transform/pos = Vector2( 181.718, -94.1829 )
-transform/rot = 3.78022
-transform/scale = Vector2( 0.842491, 0.842491 )
+transform/rot = 4.74632
+transform/scale = Vector2( 0.802237, 0.802237 )
 texture = ExtResource( 4 )
 vframes = 2
 hframes = 3
