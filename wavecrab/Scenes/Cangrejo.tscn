@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scenes/Cangrejo.gd" type="Script" id=1]
-[ext_resource path="res://Gfx/crabywalk.png" type="Texture" id=2]
-[ext_resource path="res://Gfx/crabyattack.png" type="Texture" id=3]
-[ext_resource path="res://Gfx/crabyidle.png" type="Texture" id=4]
-[ext_resource path="res://Gfx/crabyquiet.png" type="Texture" id=5]
+[ext_resource path="res://Gfx/crabyattack.png" type="Texture" id=2]
+[ext_resource path="res://Gfx/crabyidle.png" type="Texture" id=3]
+[ext_resource path="res://Gfx/crabyquiet.png" type="Texture" id=4]
+[ext_resource path="res://Gfx/crabywalk.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -26,7 +26,7 @@ tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 3 ) ] }
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 2 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
 tracks/2/interp = 1
@@ -52,7 +52,7 @@ tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 4 ) ] }
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 3 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
 tracks/2/interp = 1
@@ -78,7 +78,7 @@ tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 5 ) ] }
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 4 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
 tracks/2/interp = 1
@@ -104,7 +104,7 @@ tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 2 ) ] }
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ ExtResource( 5 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
 tracks/2/interp = 1
@@ -122,7 +122,7 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
+collision/layers = 17
 collision/mask = 1025
 collision/margin = 0.08
 script/script = ExtResource( 1 )
@@ -131,7 +131,7 @@ script/script = ExtResource( 1 )
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 1, 1 )
 limit/left = -960
 limit/top = -10000000
@@ -149,8 +149,9 @@ drag_margin/bottom = 0.12
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
-hframes = 4
-frame = 3
+vframes = 2
+hframes = 5
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 

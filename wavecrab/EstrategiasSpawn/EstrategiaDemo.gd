@@ -27,7 +27,7 @@ func iniciar_ola(ola, duracion):
 	
 	print ("---------------- ", restantes)
 	
-	pend = -2 * (restantes - enemigos_ola_base) / (sub_olas * (sub_olas + 1))
+	pend = restantes / sub_olas
 	subola_actual = 1
 	
 func aplicar_spawn(spawn):
@@ -43,7 +43,7 @@ func _fixed_process(delta):
 	if _t_restante_subola < 0:
 		_t_restante_subola += cadencia_sub_ola
 		
-		var total_subola = round(pend * subola_actual + restantes / (2.0 * subola_actual))
+		var total_subola = round(pend)
 		print (subola_actual, ": ", total_subola)
 		for i in range(0, total_subola):
 			spawns[0].spawn()
