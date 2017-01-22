@@ -1,20 +1,35 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=11]
-[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=14]
-[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=12]
+[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=15]
+[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=16]
+
+[sub_resource type="DynamicFont" id=6]
+
+font/size = 100
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+
+font/size = 50
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -69,11 +84,49 @@ tile_data = IntArray( -196610, 0, -196609, 0, -262144, 0, -262143, 0, -262142, 0
 
 transform/pos = Vector2( 992, -544 )
 
-[node name="Mar" parent="." instance=ExtResource( 4 )]
+[node name="game_over" type="Label" parent="Tesoro"]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -150.0
+margin/top = -100.0
+margin/right = 147.0
+margin/bottom = 18.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.0859375, 0.0859375, 0.0859375, 1 )
+text = "PERDISTE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="again" type="Button" parent="Tesoro"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -110.0
+margin/top = 147.0
+margin/right = 101.0
+margin/bottom = 212.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_disabled = Color( 0.0859216, 0.0859216, 0.0859216, 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "¿OTRA VEZ\?"
+flat = false
+
+[node name="Mar" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 960, 600 )
 
-[node name="Mar1" parent="." instance=ExtResource( 4 )]
+[node name="Mar1" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -960, 600 )
 
@@ -111,9 +164,9 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3 )
+tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3, -131072, 0 )
 
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1099.98, 1895.43 )
 transform/scale = Vector2( 58.3743, 11.2321 )
@@ -155,39 +208,39 @@ trigger = false
 
 editor/display_folded = true
 
-[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 6 )]
+[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1952, 608 )
 
-[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 7 )]
+[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 196.406, 838.083 )
 
-[node name="Rock" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock" parent="Rocas" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1390.55, 266.239 )
 
-[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 6 )]
+[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 494.942, -82.7533 )
 
-[node name="Rock 2" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock 2" parent="Rocas" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( -85.3114, 468.067 )
 
-[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 7 )]
+[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -93.7208, -524.25 )
 
-[node name="Rock 3" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock 3" parent="Rocas" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 1886.71, -654.597 )
 
-[node name="ResSpawn" parent="." instance=ExtResource( 9 )]
+[node name="ResSpawn" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( -300, 420 )
 
-[node name="Cangrejo" parent="." instance=ExtResource( 10 )]
+[node name="Cangrejo" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 960.803, 160.85 )
 
@@ -212,7 +265,7 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
+textures/normal = ExtResource( 12 )
 
 [node name="construir_castillo" type="TextureButton" parent="GUI"]
 
@@ -228,9 +281,9 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
+textures/normal = ExtResource( 13 )
 
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 13 )]
+[node name="contador_recursos" parent="GUI" instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 1787.75, 817.05 )
 
@@ -238,7 +291,7 @@ transform/pos = Vector2( 1787.75, 817.05 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 14 )
+stream/stream = ExtResource( 15 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -258,7 +311,9 @@ config/polyphony = 1
 config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
-[node name="SpawnStrategy" parent="." instance=ExtResource( 15 )]
+[node name="SpawnStrategy" parent="." instance=ExtResource( 16 )]
+
+[connection signal="released" from="Tesoro/again" to="." method="_on_again_released"]
 
 [connection signal="released" from="GUI/construir_torre" to="Cangrejo" method="_on_construir_torre_released"]
 
