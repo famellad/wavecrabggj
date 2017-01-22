@@ -72,8 +72,10 @@ collision/layers = 2
 collision/mask = 28
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+danno = 2
+_health = 4
 cadencia = 0.8
-velocidad = 120
+velocidad = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

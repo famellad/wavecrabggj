@@ -18,8 +18,9 @@ func die():
 func hit(en):
 	health -= en.danno
 	if health <= 0:
-		_anim.connect("finished", self, "die")
-		_anim.play("rip")
+		if _anim != null:
+			_anim.connect("finished", self, "die")
+			_anim.play("rip")
 
 func _fixed_process(delta):
 	t_ultimo_disparo += delta
@@ -38,14 +39,15 @@ func en_rango(en):
 	if t_ultimo_disparo > cadencia:
 		t_ultimo_disparo -= cadencia
 		fuego((en.get_global_pos() - get_global_pos()).normalized())
-	return unico_objetivo
+	return not unico_objetivo
 	
 func fuego(dir):
 	var cn = concha.instance()
 	cn.set_pos(get_global_pos())
 	cn.dir = dir
 	
-	_anim.play("shoot")
+	if _anim != null:
+		_anim.play("shoot")
 	get_parent().add_child(cn)
 	
 func _input(event):

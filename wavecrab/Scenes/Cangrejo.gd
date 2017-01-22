@@ -5,12 +5,11 @@ var moving = false
 var attack = false
 onready var anim = get_node("Sprite/AnimationPlayer")
 onready var recursos = load("res://Scenes/UI/ContadorRecursos.tscn")
-onready var hitbox = get_node("Hitbox")
 var recursos_node
 var cooldown = CADENCIA
 
 const CADENCIA = 0.5
-const COSTO_TORRE = 10
+const COSTO_TORRE = 25
 const COSTO_CASTILLO = 100
 const LARGO_TORRE = 230
 const LARGO_CASTILLO = 500
@@ -60,8 +59,8 @@ func checar_enemigos(delta):
 	
 	for e in enemigos:
 		var pos = e.get_pos()
-		if abs(get_pos().x - pos.x) < 75:
-			if abs(get_pos().y - pos.y) < 90:
+		if abs(get_pos().x - pos.x) < 110:
+			if abs(get_pos().y - pos.y) < 130:
 				attack = true
 				if cooldown <= 0:
 					e.crab_hit()

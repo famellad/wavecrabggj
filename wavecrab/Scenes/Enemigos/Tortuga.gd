@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-var danno = 2
-var _health = 4
 var target
 var _t_restante_ataque = 0
 var huyendo = false
 
+export var danno = 2
+export var _health = 7
 export var cadencia = 0.8
 export var velocidad = 1
 

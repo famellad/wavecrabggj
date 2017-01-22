@@ -5,6 +5,9 @@ var dir = Vector2()
 export var danno = 2
 export var velocidad = 800
 
+const lifetime = 5
+var _t_vida = 0
+
 var boom = false
 
 func play_spin():
@@ -12,6 +15,8 @@ func play_spin():
 
 func _fixed_process(delta):
 	if boom: return
+	
+	_t_vida += delta
 	
 	var rem = move(delta * dir * velocidad)
 	if is_colliding():
@@ -21,7 +26,11 @@ func _fixed_process(delta):
 		#else:
 		#	print("Objeto con mascara de enemigo no tiene evento al ser dannado")
 		explode()
-		
+	
+	if not boom:
+		if _t_vida > lifetime:
+			queue_free()
+	
 func mprint():
 	queue_free()
 	

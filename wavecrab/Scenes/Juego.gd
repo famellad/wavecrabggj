@@ -13,6 +13,7 @@ onready var cangrejo = get_node("Cangrejo")
 onready var contador = preload("res://Scenes/UI/Contador.tscn")
 var contador_node
 var contador_ref
+onready var _ola_lbl = get_node("GUI/ola")
 
 var ola = 0
 onready var spawners = get_tree().get_nodes_in_group("spawner")
@@ -36,13 +37,17 @@ func _fixed_process(delta):
 		if dist > 30:
 			var mot = cangrejo.move(dir * velocidad)
 			if mot.length() > 0:
-				destino = cangrejo.get_pos()
+				var n = cangrejo.get_collision_normal()
+				dir = n.slide(dir)
+				cangrejo.move(dir * velocidad)
 		else:
 			velocidad = 0
 		
 
 func iniciar_ola():
 	ola += 1
+	
+	_ola_lbl.set_text("Ola: " + str(ola))
 	
 	spawn_strategy.iniciar_ola(ola, 30)
 	for spawn in spawners:
