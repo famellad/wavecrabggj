@@ -4,6 +4,7 @@ var danno = 2
 var _health = 4
 var target
 var _t_restante_ataque = 0
+var huyendo = false
 
 export var cadencia = 0.8
 export var velocidad = 1
@@ -11,14 +12,21 @@ export var velocidad = 1
 func hit(part):
 	_health -= part.danno
 	if _health <= 0:
-		self.queue_free()
+		huir()
 		
 func crab_hit():
 	_health -= 1
 	if _health <= 0:
-		self.queue_free()
+		huir()
 
 func encontrar_target():
+	if huyendo:
+		var spawner = get_tree().get_nodes_in_group("spawner")
+		for s in spawner:
+			target = weakref(s)
+		velocidad = 300
+		return
+	
 	var pot_targets = get_tree().get_nodes_in_group("fuente")
 	for x in pot_targets:
 		target = weakref(x) 
@@ -35,6 +43,9 @@ func encontrar_target():
 	# Fin target
 	
 func _fixed_process(delta):
+	if get_pos().y >= 3000:
+		self.queue_free()
+	
 	_t_restante_ataque -= delta
 	
 	if not self:
@@ -47,7 +58,6 @@ func _fixed_process(delta):
 		encontrar_target()
 				
 	if target.get_ref():
-		
 		var movdir = (target.get_ref().get_global_pos() - get_global_pos()).normalized()
 		var resto = move(movdir * velocidad * delta)
 		if resto.length_squared() > 0:
@@ -59,6 +69,12 @@ func en_colision(en):
 	if en.has_method("hit") and _t_restante_ataque < 0:
 		en.hit(self)
 		_t_restante_ataque  = cadencia
+
+func huir():
+	get_node("CollisionShape2D").set_trigger(true)
+	get_node("piratewalk/AnimationPlayer").play("flee")
+	huyendo = true
+	encontrar_target()
 
 func _ready():
 	set_fixed_process(true)
