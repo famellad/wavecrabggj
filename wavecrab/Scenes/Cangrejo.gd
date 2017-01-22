@@ -16,11 +16,7 @@ var wait = 0
 func _ready():
 	get_node("Camera2D").make_current()
 	set_process(true)
-	recursos_node = recursos.instance()
-	recursos_node.hide()
-	#Corregir posición!
-	#recursos_node.set_pos(Vector2(958.046204, 130.461441))
-	add_child(recursos_node)
+	recursos_node = get_parent().get_node("GUI/contador_recursos")
 	
 	
 func _process( delta ):
@@ -51,7 +47,7 @@ func construir_torre():
 		#Construir torre, descontar recursos.
 		var torre = load("res://Scenes/Estructuras/Torre.tscn")
 		var torre_node = torre.instance()
-		var new_pos = Vector2(get_pos().x - (LARGO_TORRE/2 + RADIO_CANGREJO))
+		var new_pos = Vector2(get_pos().x - (LARGO_TORRE/2 + RADIO_CANGREJO), get_pos().y)
 		torre_node.set_pos(new_pos)
 		get_parent().add_child(torre_node)
 		recursos_node.set_label(str(valor_actual - COSTO_TORRE))
@@ -65,7 +61,7 @@ func construir_castillo():
 		#Construir castillo, descontar recursos.
 		var castillo = load("res://Scenes/Estructuras/Castillo.tscn")
 		var castillo_node = castillo.instance()
-		var new_pos = Vector2(get_pos().x - (LARGO_CASTILLO/2 + RADIO_CANGREJO))
+		var new_pos = Vector2(get_pos().x - (LARGO_CASTILLO/2 + RADIO_CANGREJO), get_pos().y)
 		castillo_node.set_pos(new_pos)
 		castillo_node.set_pos(get_pos())
 		get_parent().add_child(castillo_node)

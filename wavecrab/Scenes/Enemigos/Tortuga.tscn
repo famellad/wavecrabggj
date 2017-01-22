@@ -45,7 +45,7 @@ collision/mask = 28
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 cadencia = 0.8
-velocidad = 600
+velocidad = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

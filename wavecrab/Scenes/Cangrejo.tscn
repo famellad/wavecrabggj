@@ -37,7 +37,7 @@ tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ 3 ] }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 resource/name = "quiet"
 length = 0.6
@@ -133,7 +133,7 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/idle = SubResource( 2 )
-anims/quiet = SubResource( 5 )
+anims/quiet = SubResource( 3 )
 anims/walk = SubResource( 4 )
 next/idle = "quiet"
 playback/active = true

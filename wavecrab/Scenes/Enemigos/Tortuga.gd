@@ -6,7 +6,7 @@ var target
 var _t_restante_ataque = 0
 
 export var cadencia = 0.8
-export var velocidad = 30
+export var velocidad = 1
 
 func hit(part):
 	_health -= part.danno
