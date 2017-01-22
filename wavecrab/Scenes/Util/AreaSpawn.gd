@@ -6,7 +6,7 @@ export(float) var cadencia = 1 / 10
 export(int) var grupos = 5
 export(int) var enemigos_por_grupo = 4
 export(bool) var habilitado = false
-export(String, FILE, "*.tscn") var enemigo = "res://Scenes/Enemigos/tortuga.tscn"
+export(String, FILE, "*.tscn") var enemigo = "res://Scenes/Enemigos/Tortuga.tscn"
 
 var enemigo_tpl = load(enemigo)
 var _tiempo_ultimo_spawn = cadencia

@@ -6,10 +6,20 @@ export var cadencia = 2.5
 export(float) var cono = 2 * PI
 export(float) var radio = 1200
 export(bool) var unico_objetivo = false
+export(int) var health = 20
+
 var t_ultimo_disparo = cadencia
 
 onready var _anim = get_node("torre/anim")
 
+func die():
+	queue_free()
+
+func hit(en):
+	health -= en.danno
+	if health <= 0:
+		_anim.connect("finished", self, "die")
+		_anim.play("rip")
 
 func _fixed_process(delta):
 	t_ultimo_disparo += delta

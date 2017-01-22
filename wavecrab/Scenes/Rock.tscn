@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Gfx/Fondo/Piedra1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/DanioRoca.gd" type="Script" id=1]
+[ext_resource path="res://Gfx/Fondo/Piedra1.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 72.6852, 24.3013, -68.1553, 38.8255, -83.1196, 24.3013, -79.5986, 13.2981, -26.3433, -34.2355, 5.78596, -47.8795, 26.4719, -47.8795, 51.119, -32.9152 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 72.6852, 24.3013, 51.119, -32.9152, 70.4846, -21.912, 81.9279, -8.70819, 84.1285, 15.4988 )
 
-[sub_resource type="NavigationPolygon" id=2]
+[sub_resource type="NavigationPolygon" id=3]
 
 vertices = Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411, -42.8695, -39.913 )
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
@@ -21,10 +22,10 @@ outlines = [ Vector2Array( 41.4983, -39.913, 41.4983, 41.0411, -42.8695, 41.0411
 [node name="Rock" type="StaticBody2D"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 4 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 collision/layers = 1
@@ -33,6 +34,8 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+script/script = ExtResource( 1 )
+health = 18
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
@@ -43,14 +46,14 @@ trigger = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 
 transform/pos = Vector2( 1.10803, -2.21606 )
-navpoly = SubResource( 2 )
+navpoly = SubResource( 3 )
 enabled = true
 
 

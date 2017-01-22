@@ -13,7 +13,7 @@ extents = Vector2( 60, 75 )
 offsets = FloatArray( 0, 0.0760234, 0.327485, 0.608187 )
 colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[node name="Tesoro" type="StaticBody2D"]
+[node name="Tesoro" type="StaticBody2D" groups=[ "fuente" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
