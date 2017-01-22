@@ -16,7 +16,7 @@ func hit(part):
 func encontrar_target():
 	var pot_targets = get_tree().get_nodes_in_group("fuente")
 	for x in pot_targets:
-		target = weak_ref(x) 
+		target = weakref(x) 
 		return
 	
 	pot_targets = get_tree().get_nodes_in_group("estructuras")
