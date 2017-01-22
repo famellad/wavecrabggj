@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=26 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
@@ -12,11 +12,13 @@
 [ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=12]
-[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=13]
-[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=16]
-[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Gfx/UI/tower_select.png" type="Texture" id=13]
+[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=14]
+[ext_resource path="res://Gfx/UI/castle_select.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=18]
+[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -43,7 +45,7 @@ points = Vector2Array( -864, 1056, -1152, 1344, -1152, -1440, -864, -1152 )
 font/size = 180
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 14 )
+font/font = ExtResource( 16 )
 
 [sub_resource type="SampleLibrary" id=6]
 
@@ -230,6 +232,7 @@ click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 12 )
+textures/hover = ExtResource( 13 )
 
 [node name="construir_castillo" type="TextureButton" parent="GUI"]
 
@@ -245,7 +248,8 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
+textures/normal = ExtResource( 14 )
+textures/hover = ExtResource( 15 )
 
 [node name="ola" type="Label" parent="GUI"]
 
@@ -262,7 +266,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 15 )]
+[node name="contador_recursos" parent="GUI" instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 1787.75, 817.05 )
 
@@ -272,7 +276,7 @@ editor/display_folded = true
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 16 )
+stream/stream = ExtResource( 18 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -292,7 +296,7 @@ config/polyphony = 1
 config/samples = SubResource( 6 )
 config/pitch_random = 0.0
 
-[node name="SpawnStrategy" parent="." instance=ExtResource( 17 )]
+[node name="SpawnStrategy" parent="." instance=ExtResource( 19 )]
 
 enemigos_ola_base = 20
 enemigos_ola_crecimiento = 1.3
