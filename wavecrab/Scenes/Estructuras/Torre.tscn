@@ -4,7 +4,7 @@
 [ext_resource path="res://Gfx/Estructuras/Castillo.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -113.52, 101.941, -66.6533, -44.0236, 58.501, -45.384, 103.164, 102.481 )
@@ -32,7 +32,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 0.25, 4, 0.25 ), "update":0, "values":[ Vector2( 1.2, 0.8 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ) ] }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 
 font/size = 100
 font/use_mipmaps = false
@@ -42,7 +42,7 @@ font/font = ExtResource( 3 )
 [node name="Torre" type="StaticBody2D" groups=[ "estructuras" ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 4
@@ -91,7 +91,7 @@ margin/left = -19.0
 margin/top = -163.0
 margin/right = 21.0
 margin/bottom = -45.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

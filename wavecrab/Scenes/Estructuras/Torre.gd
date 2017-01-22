@@ -29,7 +29,10 @@ func hit(en):
 func _fixed_process(delta):
 	t_ultimo_disparo += delta
 	
-	_lbl_vida.set_text(str(health))
+	if health >= 0:
+		_lbl_vida.set_text(str(health))
+	else:
+		_lbl_vida.set_text(str(0))
 	
 	var enemigos = get_tree().get_nodes_in_group("enemigos")
 	for en in enemigos:

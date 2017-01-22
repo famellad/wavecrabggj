@@ -33,7 +33,7 @@ cadencia = 0.6
 cono = 6.283
 radio = 400.0
 unico_objetivo = false
-health = 24
+health = 32
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 

@@ -26,7 +26,8 @@ func _fixed_process(delta):
 	if get_node("Tesoro").huyendo:
 		contador_next_game -= delta
 		get_node("GUI/contador_recursos").hide()
-		get_node("GUI/Contador").hide()
+		if get_node("GUI/Contador"):
+			get_node("GUI/Contador").hide()
 	
 	if contador_next_game <= 0:
 		get_tree().change_scene("res://Scenes/Titulo.tscn")

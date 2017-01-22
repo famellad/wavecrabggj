@@ -1,24 +1,23 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://Scenes/Juego.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Fondo/Tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Roca.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=12]
-[ext_resource path="res://Gfx/UI/tower_select.png" type="Texture" id=13]
-[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=14]
-[ext_resource path="res://Gfx/UI/castle_select.png" type="Texture" id=15]
-[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=18]
-[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Roca2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Fondo/Mar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Util/AreaSpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Roca3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Util/ResSpawn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tesoro.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Cangrejo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Gfx/UI/tower.png" type="Texture" id=11]
+[ext_resource path="res://Gfx/UI/tower_select.png" type="Texture" id=12]
+[ext_resource path="res://Gfx/UI/castle.png" type="Texture" id=13]
+[ext_resource path="res://Gfx/UI/castle_select.png" type="Texture" id=14]
+[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Scenes/UI/ContadorRecursos.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Sfx/rola.ogg" type="AudioStream" id=17]
+[ext_resource path="res://EstrategiasSpawn/EstrategiaDemo.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -45,7 +44,7 @@ points = Vector2Array( -864, 1056, -1152, 1344, -1152, -1440, -864, -1152 )
 font/size = 180
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 16 )
+font/font = ExtResource( 15 )
 
 [sub_resource type="SampleLibrary" id=6]
 
@@ -76,11 +75,13 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -196610, 0, -196609, 0, -262144, 0, -262143, 0, -262142, 0, -262141, 0, -262140, 0, -262139, 0, -131074, 0, -131073, 0, -196608, 0, -196607, 0, -196606, 0, -196605, 0, -196604, 0, -196603, 0, -65538, 0, -65537, 0, -131072, 0, -131071, 0, -131070, 0, -131069, 0, -131068, 0, -131067, 0, -2, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, 65534, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 131070, 0, 131071, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 196606, 0, 196607, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0 )
 
-[node name="Mar" parent="." instance=ExtResource( 3 )]
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Mar" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 960, 600 )
 
-[node name="Mar1" parent="." instance=ExtResource( 3 )]
+[node name="Mar1" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -960, 600 )
 
@@ -120,15 +121,11 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -131074, 3, -131073, 3, -196608, 3, -196607, 3, -196606, 3, -196605, 3, -196604, 3, -196603, 3 )
 
-[node name="StaticBody2D" parent="BordesRejas" instance=ExtResource( 4 )]
+[node name="StaticBody2D" parent="BordesRejas" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 730.579, 594.24 )
 
-[node name="Roca" parent="BordesRejas" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 1852.65, -231.438 )
-
-[node name="Node2D" parent="." instance=ExtResource( 6 )]
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1061.27, 1895.43 )
 transform/scale = Vector2( 50.864, 11.2321 )
@@ -170,43 +167,43 @@ trigger = false
 
 editor/display_folded = true
 
-[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 4 )]
+[node name="StaticBody2D" parent="Rocas" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1952, 608 )
 
-[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 7 )]
+[node name="StaticBody2D 2" parent="Rocas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 196.406, 838.083 )
 
-[node name="Rock" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1390.55, 266.239 )
 
-[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 4 )]
+[node name="StaticBody2D 3" parent="Rocas" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 494.942, -82.7533 )
 
-[node name="Rock 2" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock 2" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( -85.3114, 468.067 )
 
-[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 7 )]
+[node name="StaticBody2D 4" parent="Rocas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -93.7208, -524.25 )
 
-[node name="Rock 3" parent="Rocas" instance=ExtResource( 8 )]
+[node name="Rock 3" parent="Rocas" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 1886.71, -654.597 )
 
-[node name="ResSpawn" parent="." instance=ExtResource( 9 )]
+[node name="ResSpawn" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( -300, 420 )
 
-[node name="Tesoro" parent="." instance=ExtResource( 10 )]
+[node name="Tesoro" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 992, -544 )
 
-[node name="Cangrejo" parent="." instance=ExtResource( 11 )]
+[node name="Cangrejo" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 960.803, 160.85 )
 
@@ -231,8 +228,8 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
+textures/normal = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
 
 [node name="construir_castillo" type="TextureButton" parent="GUI"]
 
@@ -248,8 +245,8 @@ toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
+textures/normal = ExtResource( 13 )
+textures/hover = ExtResource( 14 )
 
 [node name="ola" type="Label" parent="GUI"]
 
@@ -266,7 +263,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="contador_recursos" parent="GUI" instance=ExtResource( 17 )]
+[node name="contador_recursos" parent="GUI" instance=ExtResource( 16 )]
 
 transform/pos = Vector2( 1787.75, 817.05 )
 
@@ -276,7 +273,7 @@ editor/display_folded = true
 
 [node name="StreamPlayer" type="StreamPlayer" parent="Sonido"]
 
-stream/stream = ExtResource( 18 )
+stream/stream = ExtResource( 17 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -287,6 +284,7 @@ stream/buffering_ms = 500
 
 [node name="SamplePlayer2D" type="SamplePlayer2D" parent="Sonido"]
 
+transform/pos = Vector2( 1626.31, -225.661 )
 params/volume_db = -2.0
 params/pitch_scale = 1.0
 params/attenuation/min_distance = 1.0
@@ -296,7 +294,7 @@ config/polyphony = 1
 config/samples = SubResource( 6 )
 config/pitch_random = 0.0
 
-[node name="SpawnStrategy" parent="." instance=ExtResource( 19 )]
+[node name="SpawnStrategy" parent="." instance=ExtResource( 18 )]
 
 enemigos_ola_base = 20
 enemigos_ola_crecimiento = 1.3
