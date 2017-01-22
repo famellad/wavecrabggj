@@ -2,9 +2,13 @@ extends KinematicBody2D
 
 var prev_pos = Vector2()
 var moving = false
+var attack = false
 onready var anim = get_node("Sprite/AnimationPlayer")
 onready var recursos = load("res://Scenes/UI/ContadorRecursos.tscn")
 var recursos_node
+var cooldown
+
+const CADENCIA = 0.5
 const COSTO_TORRE = 10
 const COSTO_CASTILLO = 100
 const LARGO_TORRE = 230
@@ -18,10 +22,13 @@ func _ready():
 	set_process(true)
 	recursos_node = get_parent().get_node("GUI/contador_recursos")
 	
-	
 func _process( delta ):
+	checar_enemigos()
+	
+	
+	
 	var rf = randf()
-	if rf < 0.01 and not moving:
+	if rf < 0.001 and not moving:
 		print(rf)
 		anim.play("idle")
 	
@@ -40,7 +47,10 @@ func _process( delta ):
 			anim.play("walk")
 		
 	prev_pos = get_pos()
-	
+
+func checar_enemigos():
+	pass
+
 func construir_torre():
 	var valor_actual = int(recursos_node.get_label())
 	if valor_actual >= COSTO_TORRE:
