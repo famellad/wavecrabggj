@@ -7,8 +7,8 @@ onready var animt = get_node("Tartarugas/AnimTart")
 
 func _ready():
 	get_node("Tartarugas").set_opacity( 0 )
-	get_parent().get_node("GUI/game_over").set_opacity( 0 )
-	get_parent().get_node("GUI/again").set_opacity( 0 )
+	#get_parent().get_node("GUI/game_over").set_opacity( 0 )
+	#get_parent().get_node("GUI/again").set_opacity( 0 )
 	set_fixed_process(true)
 
 func _fixed_process(delta):
