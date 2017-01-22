@@ -13,25 +13,26 @@ var contador_node
 var contador_ref
 	
 func _fixed_process(delta):
-	var dir = (destino - cangrejo.get_pos())
-	var dist = dir.length()
-	dir = dir.normalized()
-	
-	if velocidad < VEL_MAX:
-		var tmp_accel = aceleracion
-		var dv = tmp_accel * delta
-		if velocidad + dv > VEL_MAX:
-			velocidad = VEL_MAX
-		else: 
-			velocidad += dv
-			
-	if dist > 30:
-		var mot = cangrejo.move(dir * velocidad)
-		if mot.length() > 0:
-			destino = cangrejo.get_pos()
-	else:
-		velocidad = 0
-		set_fixed_process(false)
+	if Input.is_action_pressed("mouse_down"):
+		destino = get_global_mouse_pos()
+		var dir = (destino - cangrejo.get_pos())
+		var dist = dir.length()
+		dir = dir.normalized()
+		
+		if velocidad < VEL_MAX:
+			var tmp_accel = aceleracion
+			var dv = tmp_accel * delta
+			if velocidad + dv > VEL_MAX:
+				velocidad = VEL_MAX
+			else: 
+				velocidad += dv
+				
+		if dist > 30:
+			var mot = cangrejo.move(dir * velocidad)
+			if mot.length() > 0:
+				destino = cangrejo.get_pos()
+		else:
+			velocidad = 0
 		
 
 func _process(delta):
@@ -49,11 +50,6 @@ func _process(delta):
 				#Animación final?
 				#Instanciar la ola
 				contador_node.free()
-
-func _input(event):
-	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and event.button_index == 1):
-		destino = get_global_mouse_pos()
-		set_fixed_process(true)
 		
 func iniciar_contador():
 	randomize()
@@ -67,3 +63,4 @@ func iniciar_contador():
 func _ready():
 	set_process(true)
 	set_process_input(true)
+	set_fixed_process(true)
