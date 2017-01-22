@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var danno = 2
-var _health = 2
+var _health = 4
 var target
 var _t_restante_ataque = 0
 

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var _anim = get_node("Conchita/AnimationPlayer")
 var dir = Vector2()
-export var danno = 1
+export var danno = 2
 export var velocidad = 800
 
 var boom = false
