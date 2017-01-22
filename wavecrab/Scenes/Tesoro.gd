@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var huyendo = false
 var n_tortugas = 0
 onready var animc = get_node("Cofre/AnimCofre")
 onready var animt = get_node("Tartarugas/AnimTart")
