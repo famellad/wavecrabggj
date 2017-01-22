@@ -2,15 +2,18 @@ extends Node2D
 
 var dir = Vector2()
 var concha = preload("res://Scenes/Estructuras/Conchita.tscn")
-export var cadencia = 1 / 2
+export var cadencia = 2.5
 export(float) var cono = 2 * PI
-export(float) var radio = 100
+export(float) var radio = 1200
 export(bool) var unico_objetivo = false
 var t_ultimo_disparo = cadencia
+
+onready var _anim = get_node("torre/anim")
 
 
 func _fixed_process(delta):
 	t_ultimo_disparo += delta
+	
 	var enemigos = get_tree().get_nodes_in_group("enemigos")
 	for en in enemigos:
 		var dist = (en.get_pos() - get_pos()).length()
@@ -24,14 +27,16 @@ func _fixed_process(delta):
 func en_rango(en):
 	if t_ultimo_disparo > cadencia:
 		t_ultimo_disparo -= cadencia
-		fuego((en.get_pos() - get_pos()).normalized())
+		fuego((en.get_global_pos() - get_global_pos()).normalized())
 	return unico_objetivo
 	
 func fuego(dir):
 	var cn = concha.instance()
-	cn.set_pos(get_pos())
+	cn.set_pos(get_global_pos())
 	cn.dir = dir
-	add_child(cn)
+	
+	_anim.play("shoot")
+	get_parent().add_child(cn)
 	
 func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON 
