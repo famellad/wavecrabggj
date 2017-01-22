@@ -15,7 +15,7 @@ var pend = 0
 var activado = false
 
 func _ready():
-	set_process(true)
+	set_fixed_process(true)
 
 func iniciar_ola(ola, duracion):
 	spawns = []
@@ -35,7 +35,7 @@ func aplicar_spawn(spawn):
 	spawn.habilitado = false
 	
 	
-func _process(delta):
+func _fixed_process(delta):
 	if not activado:
 		return
 	
@@ -44,7 +44,7 @@ func _process(delta):
 		_t_restante_subola += cadencia_sub_ola
 		
 		var total_subola = round(pend * subola_actual + restantes / (2.0 * subola_actual))
-		print (total_subola)
+		print (subola_actual, ": ", total_subola)
 		for i in range(0, total_subola):
 			spawns[0].spawn()
 	
