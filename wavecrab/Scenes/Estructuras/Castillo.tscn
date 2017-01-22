@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Scenes/Estructuras/Torre.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Estructuras/Torrecastillo.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -167.46, -28.3311, 160.178, -37.4373, 210.001, 192.133, -205.874, 193.803 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 100
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
 
 [node name="Castillo" type="StaticBody2D"]
 
@@ -21,11 +29,11 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
-cadencia = 0.35
+cadencia = 0.6
 cono = 6.283
-radio = 450.0
+radio = 400.0
 unico_objetivo = false
-health = 25
+health = 24
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
@@ -38,5 +46,20 @@ trigger = false
 
 transform/pos = Vector2( 0, 2.51755 )
 texture = ExtResource( 2 )
+
+[node name="vida" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -18.0
+margin/top = -249.0
+margin/right = 22.0
+margin/bottom = -131.0
+custom_fonts/font = SubResource( 2 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

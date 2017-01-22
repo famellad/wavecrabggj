@@ -8,6 +8,8 @@ export(float) var radio = 1200
 export(bool) var unico_objetivo = false
 export(int) var health = 20
 
+onready var _lbl_vida = get_node("vida")
+
 var t_ultimo_disparo = cadencia
 
 onready var _anim = get_node("torre/anim")
@@ -21,9 +23,13 @@ func hit(en):
 		if _anim != null:
 			_anim.connect("finished", self, "die")
 			_anim.play("rip")
+		else:
+			die()
 
 func _fixed_process(delta):
 	t_ultimo_disparo += delta
+	
+	_lbl_vida.set_text(str(health))
 	
 	var enemigos = get_tree().get_nodes_in_group("enemigos")
 	for en in enemigos:

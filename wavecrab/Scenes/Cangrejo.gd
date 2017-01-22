@@ -10,7 +10,7 @@ var cooldown = CADENCIA
 
 const CADENCIA = 0.5
 const COSTO_TORRE = 25
-const COSTO_CASTILLO = 100
+const COSTO_CASTILLO = 125
 const LARGO_TORRE = 230
 const LARGO_CASTILLO = 500
 const RADIO_CANGREJO = 76.5

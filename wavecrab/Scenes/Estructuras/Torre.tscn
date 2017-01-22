@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Scenes/Estructuras/Torre.gd" type="Script" id=1]
 [ext_resource path="res://Gfx/Estructuras/Castillo.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/BradBunR.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
@@ -31,9 +32,15 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2 ), "transitions":FloatArray( 0.25, 4, 0.25 ), "update":0, "values":[ Vector2( 1.2, 0.8 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ) ] }
 
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 100
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
 [node name="Torre" type="StaticBody2D" groups=[ "estructuras" ]]
 
-transform/pos = Vector2( -522.384, -157.803 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -73,5 +80,20 @@ build_mode = 0
 polygon = Vector2Array( -113.52, 101.941, -66.6533, -44.0236, 58.501, -45.384, 103.164, 102.481 )
 shape_range = Vector2( 0, 0 )
 trigger = false
+
+[node name="vida" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -19.0
+margin/top = -163.0
+margin/right = 21.0
+margin/bottom = -45.0
+custom_fonts/font = SubResource( 5 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

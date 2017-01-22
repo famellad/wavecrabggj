@@ -10,7 +10,7 @@ export var danno = 2
 export var _health = 7
 export var cadencia = 0.8
 export var velocidad = 1
-export var boost = 300
+export var boost = 100
 
 func hit(part):
 	_health -= part.danno
@@ -46,7 +46,7 @@ func encontrar_target():
 	# Fin target
 	
 func _fixed_process(delta):
-	unboost += delta * 10
+	unboost += delta * 30
 	unboost = min(unboost, boost)
 	
 	if get_pos().y >= 1500 and huyendo:
