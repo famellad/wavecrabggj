@@ -24,11 +24,16 @@ func _ready():
 	
 	
 func _process( delta ):
+	var rf = randf()
+	if rf < 0.01 and not moving:
+		print(rf)
+		anim.play("idle")
+	
 	if prev_pos == get_pos():
 		moving = false
 		
-		if anim.get_current_animation() != "idle" and wait >= 1/15:
-			anim.play("idle")
+		if anim.get_current_animation() != "quiet" and anim.get_current_animation() != "idle" and wait >= 1/15:
+			anim.play("quiet")
 			wait = 0
 			return
 		
