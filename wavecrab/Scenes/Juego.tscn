@@ -294,6 +294,10 @@ config/pitch_random = 0.0
 
 [node name="SpawnStrategy" parent="." instance=ExtResource( 17 )]
 
+enemigos_ola_base = 20
+enemigos_ola_crecimiento = 1.3
+sub_olas = 3
+
 [connection signal="released" from="GUI/construir_torre" to="Cangrejo" method="_on_construir_torre_released"]
 
 [connection signal="released" from="GUI/construir_castillo" to="Cangrejo" method="_on_construir_castillo_released"]

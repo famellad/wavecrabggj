@@ -15,7 +15,7 @@ var contador_node
 var contador_ref
 onready var _ola_lbl = get_node("GUI/ola")
 
-var ola = 10
+var ola = 0
 onready var spawners = get_tree().get_nodes_in_group("spawner")
 onready var spawn_strategy = get_node("SpawnStrategy")
 
@@ -48,6 +48,9 @@ func iniciar_ola():
 	ola += 1
 	
 	_ola_lbl.set_text("Ola: " + str(ola))
+	
+	if ola == 1:
+		return
 	
 	spawn_strategy.iniciar_ola(ola, 30)
 	for spawn in spawners:
